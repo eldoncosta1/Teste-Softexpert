@@ -16,6 +16,20 @@ Esta aplicação foi feita utilizando webpack, e sem estas duas ferramentas não
 - Node.js (recommended: 4.x)
 - npm (recommended: 2.x or 3.x)
 
+## Banco de dados
+
+Para gravação dos registros foi utilizado o json server.
+
+npm install -g json-server
+npm install -g axios
+npm add axios
+
+npm install --save-dev babel-plugin-transform-async-to-generator
+
+Para iniciar o servidor:
+
+* Rodar o servidor rest na porta 3001: json-server --watch db.json --port 3001
+
 ## Setup
 
 Uma vez que você garantiu a instalação das ferramentas acima, por favor instale os 
@@ -217,3 +231,5 @@ ser mais produtivos.
 
 Por favor, ajuste todas as partes necessárias da aplicação para que seja possíbel 
 utilizar o webpack-dev-server e idealmente com o hot reloading pelo menos para o CSS.
+
+

@@ -1,8 +1,9 @@
 import {createStore} from './lib/state';
+import api from'./api'
 
 const initialState = {
     todos: [
-        {
+        /*{
             id: 0,
             text: 'Take a look at the application',
             done: false
@@ -21,15 +22,18 @@ const initialState = {
             id: 3,
             text: 'Filter todos by text',
             done: true
-        }
+        }*/
     ],
     
 };
 
 function todoChangeHandler(state, change) {
+    console.log(state)
+    console.log(change)
     switch(change.type) {
         case 'ADD_TODO':
         case 'TODO_INPUT':        
+
             state.todos.push({
                 id: state.todos.length,
                 text: change.text,
@@ -43,7 +47,10 @@ function todoChangeHandler(state, change) {
                     break;
                 }
             }
-            break;       
+            break;  
+        case 'LOAD':
+            console.log('LOAD');
+            break;     
 
     }
 }

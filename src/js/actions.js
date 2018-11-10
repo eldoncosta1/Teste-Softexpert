@@ -1,3 +1,6 @@
+import {todos} from './state';
+import api from "./api";
+import Axios from 'axios';
 
 export function toggleTodoState(id) {
     return {
@@ -13,9 +16,38 @@ export function addTodo(text) {
     }
 }
 
-export function todoInput(text) {
-    return {
-        type: 'TODO_INPUT',
+export function todoInput(text) { 
+
+    const todo = {
+        done: false,
         text
+    }
+  
+
+    return async dispatch => {
+        function onSuccess(success) {
+          dispatch({ type: CREATE_USER, payload: success });
+          return success;
+        }
+        function onError(error) {
+          dispatch({ type: ERROR_GENERATED, error });
+          return error;
+        }
+        try {
+          const success = await axios.api.saveTodo(todo)
+          return onSuccess(success);
+        } catch (error) {
+          return onError(error);
+        }
+      }
+   
+  
+
+}
+
+
+export const load = () => {
+    return {
+        type: 'LOAD'        
     }
 }

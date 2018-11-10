@@ -7,6 +7,11 @@ import {
 } from './actions';
 
 export function registerEventHandlers() {
+    console.log('registerEventHandlers')
+    listen("load", '#app', event => {
+        console.log('load');
+    });
+
     listen('click', '#addTodo', event => {        
         const todoInput = document.getElementById('todoInput');
         todos.dispatch(addTodo(todoInput.value));

@@ -14,7 +14,7 @@ module.exports = {
                 test: /\.js$/,
                 include: [path.resolve(__dirname, 'src', 'js')],
                 query: {
-                    plugins: ['transform-runtime'],
+                    plugins: ['transform-runtime', 'transform-async-to-generator'],
                     presets: ['es2015']
                 }
             },
